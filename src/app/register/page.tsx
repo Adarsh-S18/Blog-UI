@@ -9,13 +9,14 @@ import {
   Title,
   Text,
   Card,
+  Select,
 } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function RegisterPage() {
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ name: "", email: "", password: "", role: "user" });
   const router = useRouter();
   const submit = async () => {
     try {
@@ -54,6 +55,13 @@ export default function RegisterPage() {
           onChange={(e) =>
             setForm({ ...form, password: e.currentTarget.value })
           }
+        />
+        <Select
+          label="Role"
+          data={[{ value: "user", label: "User" }, { value: "admin", label: "Admin" }]}
+          value={form.role}
+          onChange={(value) => setForm({ ...form, role: value || "user" })}
+          required
         />
         <Button onClick={submit}>Register</Button>
         <Text size="sm" c="dimmed" style={{ textAlign: "center" }}>
