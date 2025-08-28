@@ -52,7 +52,8 @@ export default function MyPostsPage() {
     }
   };
   useEffect(() => {
-    const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+    const token =
+      typeof window !== "undefined" ? localStorage.getItem("token") : null;
     if (!token) {
       router.push("/login");
       return;
@@ -163,11 +164,21 @@ export default function MyPostsPage() {
               style={{ position: "relative" }}
             >
               <Flex direction="column" gap={6} style={{ minHeight: 120 }}>
-                <Title order={4} style={{ lineHeight: 1.3 }}>
-                  <Link href={`/posts/${p._id}`}>{p.title}</Link>
+                <Title
+                  order={4}
+                  style={{ lineHeight: 1.3, textAlign: "center" }}
+                >
+                  <Link
+                    href={`/posts/${p._id}`}
+                    style={{ textDecoration: "none", color: "#1a227ef3" }}
+                  >
+                    {p.title}
+                  </Link>
                 </Title>
-                <Text size="xs" c="dimmed">
-                  {new Date(p.createdAt).toLocaleDateString()}
+                <Text size="xs" c="dimmed" style={{ textAlign: "center" }}>
+                  <span style={{ color: "#f74f4fff", fontWeight: 600 }}>
+                    Date: {new Date(p.createdAt).toLocaleDateString()}
+                  </span>
                 </Text>
                 <Text size="sm" lineClamp={4} c="dark.6">
                   {p.content?.slice(0, 280) || ""}
