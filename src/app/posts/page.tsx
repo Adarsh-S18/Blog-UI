@@ -130,20 +130,31 @@ export default function PostsPage() {
               key={p._id}
               withBorder
               radius="md"
-              shadow="sm"
+              shadow="md"
               p="md"
               style={{
                 position: "relative",
+                transition: "transform 0.2s, box-shadow 0.2s",
+                boxShadow: "0 2px 12px rgba(80,80,200,0.10)",
+                cursor: "pointer"
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = "scale(1.01)";
+                e.currentTarget.style.boxShadow = "0 8px 32px rgba(80,80,200,0.1)";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "0 2px 12px rgba(80,80,200,0.1)";
               }}
             >
-              <Flex direction="column" gap={6} style={{ minHeight: 100 }}>
-                <Title order={4} style={{ lineHeight: 1.3 }}>
+              <Flex direction="column" gap={8} style={{ minHeight: 100 }}>
+                <Title order={4} style={{ lineHeight: 1.3, textAlign: "center" }}>
                   <Link href={`/posts/${p._id}`}>{p.title}</Link>
                 </Title>
-                <Text size="xs" c="dimmed">
+                <Text size="xs" c="dimmed" style={{ textAlign: "center" }}>
                   by {p.author?.name || "Unknown"}
                 </Text>
-                <Text size="sm" lineClamp={4} c="dark.6">
+                <Text size="sm" lineClamp={4} c="dark.6" style={{ textAlign: "center" }}>
                   {p.content?.slice(0, 300) || ""}
                 </Text>
               </Flex>
