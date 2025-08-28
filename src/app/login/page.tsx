@@ -23,7 +23,11 @@ export default function LoginPage() {
       localStorage.setItem("token", data.token);
       window.dispatchEvent(new Event("auth-changed"));
       notifications.show({ message: "Logged in", color: "green" });
-      router.push("/posts");
+      if (data.user.role === "admin") {
+        router.push("/admin/posts");
+      } else {
+        router.push("/posts");
+      }
     } catch (e: any) {
       notifications.show({
         message: e.response?.data?.error || "Error",

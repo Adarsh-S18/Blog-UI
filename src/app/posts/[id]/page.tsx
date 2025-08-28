@@ -63,7 +63,7 @@ export default function PostDetail({ params }: any) {
           <Text size="sm" c="dimmed">
             Author: {post.author?.name}
           </Text>
-          <Text style={{ lineHeight: 1.6, fontSize: 16 }}>{post.content}</Text>
+          <Text style={{ lineHeight: 1.6, fontSize: 16, wordBreak: "break-word" }}>{post.content}</Text>
         </Stack>
       )}
     </Paper>
