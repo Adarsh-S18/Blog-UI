@@ -1,0 +1,26 @@
+{
+  "name": "blog-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@mantine/core": "^7.10.0",
+    "@mantine/hooks": "^7.10.0",
+    "@mantine/notifications": "^7.10.0",
+    "@tabler/icons-react": "^3.10.0",
+    "axios": "^1.7.2",
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.12.7",
+    "@types/react": "18.2.66",
+    "@types/react-dom": "18.2.21",
+    "typescript": "5.4.5"
+  }
+}
