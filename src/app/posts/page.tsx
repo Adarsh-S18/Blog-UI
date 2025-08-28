@@ -148,11 +148,11 @@ export default function PostsPage() {
               }}
             >
               <Flex direction="column" gap={8} style={{ minHeight: 100 }}>
-                <Title order={4} style={{ lineHeight: 1.3, textAlign: "center" }}>
-                  <Link href={`/posts/${p._id}`}>{p.title}</Link>
+                <Title order={4} style={{ lineHeight: 1.3, textAlign: "center" , }}>
+                    <Link href={`/posts/${p._id}`} style={{ textDecoration: "none", color: "#1a227ef3" }}>{p.title}</Link>
                 </Title>
-                <Text size="xs" c="dimmed" style={{ textAlign: "center" }}>
-                  by {p.author?.name || "Unknown"}
+                <Text size="xs" style={{ textAlign: "center" }}>
+                   <span style={{ color: "#f74f4fff", fontWeight: 600 }}>{p.author?.name || "Unknown"}</span>
                 </Text>
                 <Text size="sm" lineClamp={4} c="dark.6" style={{ textAlign: "center" }}>
                   {p.content?.slice(0, 300) || ""}
